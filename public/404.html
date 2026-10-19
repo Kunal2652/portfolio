@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+
+    <script>
+      const segmentCount = 1;
+      const location = window.location;
+
+      const redirectPath =
+        location.pathname
+          .split("/")
+          .slice(0, 1 + segmentCount)
+          .join("/") +
+        "/?/" +
+        location.pathname
+          .split("/")
+          .slice(1 + segmentCount)
+          .join("/");
+
+      location.replace(
+        location.protocol +
+          "//" +
+          location.host +
+          redirectPath.replace(/&/g, "~and~") +
+          (location.search ? "&" + location.search.slice(1).replace(/&/g, "~and~") : "") +
+          location.hash
+      );
+    </script>
+  </head>
+
+  <body>
+    <p>Redirecting to the requested page...</p>
+  </body>
+</html>
