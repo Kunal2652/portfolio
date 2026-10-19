@@ -5,5 +5,5 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/portfolio/",
+  base: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
 });
