@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { images } from "../assets/images";
 
 const links = [
 //   { label: "About", path: "/about" },
@@ -37,9 +38,9 @@ export default function Navbar() {
   className="group flex items-center gap-3 text-white"
 >
   <img
-    src="/kunal.png"
+    src={images.kunal}
     alt="Kunal logo"
-    className="h-10 w-10 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+    className="h-12 w-12 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
   />
 
   <span className="text-xl font-bold tracking-tight">
