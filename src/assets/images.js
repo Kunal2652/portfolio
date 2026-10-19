@@ -1,5 +1,5 @@
 
-import profile from "./profile.png";
+import profile from "./profile.jpeg";
 import digividya from "./digividya.png";
 import agrovaan from "./agrovaan.png";
 

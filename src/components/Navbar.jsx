@@ -30,20 +30,22 @@ export default function Navbar() {
         className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
         aria-label="Main navigation"
       >
-        {/* Brand */}
-        <Link
-          to="/"
-          onClick={closeMenu}
-          className="group flex items-center gap-3 text-white"
-        >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-green-400/30 bg-green-400/10 text-lg font-bold text-green-400 transition duration-300 group-hover:bg-green-400 group-hover:text-gray-950">
-            K.
-          </span>
+       {/* Brand */}
+<Link
+  to="/"
+  onClick={closeMenu}
+  className="group flex items-center gap-3 text-white"
+>
+  <img
+    src="/kunal.png"
+    alt="Kunal logo"
+    className="h-10 w-10 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+  />
 
-          <span className="text-xl font-bold tracking-tight">
-            Kunal<span className="text-green-400">.</span>
-          </span>
-        </Link>
+  <span className="text-xl font-bold tracking-tight">
+    Kunal<span className="text-green-400"></span>
+  </span>
+</Link>
 
         {/* Mobile Menu Button */}
         <button

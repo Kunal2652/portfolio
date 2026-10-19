@@ -128,66 +128,137 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Profile Visual */}
-          <div className="order-1 mx-auto w-full max-w-[360px] lg:order-2 lg:max-w-[400px]">
-            <div className="relative px-3 pb-8 pt-5 sm:px-5">
-              <div className="absolute inset-8 rounded-full bg-green-400/10 blur-3xl" />
+         {/* Profile Visual */}
+<div className="order-1 mx-auto w-full max-w-[420px] lg:order-2 lg:max-w-[460px]">
+  <div className="relative px-3 pb-10 pt-8 sm:px-5">
 
-              {/* Floating top label */}
-              <div className="absolute right-0 top-0 z-20 rounded-xl border border-white/10 bg-[#151a18]/95 px-4 py-3 shadow-xl backdrop-blur">
-                <p className="text-[10px] font-semibold tracking-[0.18em] text-gray-400">
-                  CURRENT FOCUS
-                </p>
-                <p className="mt-1 text-sm font-semibold text-green-300">
-                  Building & learning
-                </p>
-              </div>
+    {/* Ambient glow */}
+    <div className="pointer-events-none absolute inset-12 rounded-full bg-green-400/[0.12] blur-[90px]" />
+    <div className="pointer-events-none absolute -right-2 top-20 h-32 w-32 rounded-full bg-cyan-400/[0.08] blur-[65px]" />
 
-              {/* Animated Profile Frame */}
-              <div className="relative mx-auto aspect-square w-full max-w-[330px]">
-                <div
-                  className="absolute -inset-[3px] rounded-full"
-                  style={{
-                    background:
-                      "conic-gradient(from var(--profile-angle, 0deg), transparent 0deg, transparent 180deg, #edef86 260deg, #fff28f 310deg, transparent 360deg)",
-                    animation: "profile-spin 5s linear infinite",
-                  }}
-                />
+    {/* Top label */}
+    <div className="absolute right-0 top-0 z-30 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#111615]/90 px-4 py-3 shadow-2xl backdrop-blur-xl sm:right-2">
+      <span className="relative flex h-2.5 w-2.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
+        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
+      </span>
 
-                <div className="absolute inset-[3px] overflow-hidden rounded-full border-4 border-[#0b0d0f] bg-gray-900">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-green-400">
-                    <span className="text-7xl font-bold">K.</span>
-                    <span className="text-xs font-semibold tracking-[0.3em]">
-                      DEVELOPER
-                    </span>
-                  </div>
+      <div>
+        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-gray-500">
+          Current focus
+        </p>
+        <p className="mt-1 text-xs font-semibold text-gray-100 sm:text-sm">
+          Building what's next
+        </p>
+      </div>
+    </div>
 
-                  <img
-                    src={images.profile}
-                    alt="Kunal, Computer Science Engineering student and developer"
-                    className="absolute inset-0 z-10 h-full w-full object-cover object-center"
-                    onError={(event) => {
-                      event.currentTarget.style.display = "none";
-                    }}
-                  />
+    {/* Main image frame */}
+    <div className="relative mx-auto mt-5 aspect-[4/5] w-full max-w-[340px] sm:max-w-[370px]">
 
-                  <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                </div>
-              </div>
+      {/* Rotating gradient outline */}
+      <div
+        className="absolute -inset-[2px] rounded-[2rem]"
+        style={{
+          background:
+            "conic-gradient(from var(--profile-angle, 0deg), #0b0d0f 0deg, #0b0d0f 100deg, #86efac 170deg, #67e8f9 230deg, #a78bfa 290deg, #0b0d0f 360deg)",
+          animation: "profile-spin 8s linear infinite",
+        }}
+      />
 
-              {/* Profile Caption */}
-              <div className="absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 whitespace-nowrap rounded-xl border border-white/10 bg-[#151a18] px-5 py-3 shadow-2xl">
-                <span className="h-2.5 w-2.5 rounded-full bg-green-400 shadow-[0_0_12px_#4ade80]" />
+      {/* Photo container */}
+      <div className="absolute inset-[2px] overflow-hidden rounded-[calc(2rem-2px)] bg-[#111615]">
 
-                <div>
-                  <strong className="block text-lg text-white text-bold">Kunal</strong>
-                  <p className="mt-0.5 text-xs text-gray-100">
-                    Full-Stack Developer
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Fallback background */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-green-400">
+          <span className="text-7xl font-black tracking-tighter">K.</span>
+          <span className="text-[10px] font-semibold tracking-[0.35em] text-gray-500">
+            DEVELOPER
+          </span>
+        </div>
+
+        <img
+          src={images.profile}
+          alt="Kunal — Full-Stack Developer"
+          className="absolute inset-0 z-10 h-full w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-[1.04]"
+          onError={(event) => {
+            event.currentTarget.style.display = "none";
+          }}
+        />
+
+        {/* Cinematic overlays */}
+        <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-[#080b0a] via-transparent to-black/10" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
+
+        {/* Image label */}
+        <div className="absolute bottom-5 left-5 z-30">
+        
+          <p className="mt-1 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            Computer Science
+          </p>
+        </div>
+
+        {/* Decorative corner */}
+        <div className="absolute right-5 top-5 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white backdrop-blur-md">
+          <span className="text-lg">↗</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Floating technology badges */}
+    <div className="absolute left-0 top-[32%] z-30 -translate-y-1/2">
+      <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-[#111615]/95 px-3 py-2.5 shadow-xl backdrop-blur-xl transition duration-300 hover:-translate-x-1">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/10 text-xs font-bold text-cyan-300">
+          {"</>"}
+        </span>
+        <div>
+          <p className="text-xs font-semibold text-white">Full-Stack</p>
+          <p className="mt-0.5 text-[10px] text-gray-500">Development</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="absolute bottom-[24%] right-0 z-30">
+      <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-[#111615]/95 px-3 py-2.5 shadow-xl backdrop-blur-xl transition duration-300 hover:translate-x-1 sm:right-1">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-400/10 text-sm font-bold text-violet-300">
+          AI
+        </span>
+        <div>
+          <p className="text-xs font-semibold text-white">Machine Learning</p>
+          <p className="mt-0.5 text-[10px] text-gray-500">Research & innovation</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom identity card */}
+    <div className="relative z-30 mx-auto -mt-1 flex w-fit max-w-full items-center gap-3 rounded-2xl border border-white/[0.12] bg-[#111615]/95 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-5">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-green-300 to-emerald-600 text-lg font-black text-gray-950 shadow-lg shadow-green-400/10">
+        K.
+      </div>
+
+      <div className="min-w-0">
+        <h3 className="text-sm font-bold tracking-wide text-white sm:text-base">
+          Kunal
+        </h3>
+        <p className="mt-1 text-xs text-gray-400">
+          Full-Stack Developer <span className="text-green-400">·</span> Researcher
+        </p>
+      </div>
+
+      <div className="ml-2 hidden h-9 w-px bg-white/10 sm:block" />
+
+      <div className="hidden sm:block">
+        <p className="text-[9px] uppercase tracking-[0.18em] text-gray-500">
+          Status
+        </p>
+        <p className="mt-1 flex items-center gap-1.5 text-xs font-medium text-green-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+          Creating
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
         {/* Portfolio Overview */}
