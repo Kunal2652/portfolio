@@ -1,4 +1,5 @@
-import {  Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const socials = [
   {
@@ -15,7 +16,7 @@ const socials = [
   },
   {
     name: "Email",
-    href: "kunal10943@gmail.com",
+    href: "mailto:kunal10943@gmail.com",
     icon: Mail,
     color: "hover:bg-amber-300 hover:text-gray-950",
   },
@@ -24,7 +25,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="relative isolate overflow-hidden bg-[#080b12]">
-      {/* Crazy colorful background */}
+      {/* Colorful background */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-32 -top-40 h-[430px] w-[430px] rounded-full bg-fuchsia-600/40 blur-[110px]" />
         <div className="absolute left-[30%] top-20 h-[350px] w-[350px] rounded-full bg-violet-600/35 blur-[120px]" />
@@ -41,15 +42,13 @@ export default function Footer() {
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
             backgroundSize: "42px 42px",
-            maskImage:
-              "linear-gradient(to bottom, black, transparent 95%)",
+            maskImage: "linear-gradient(to bottom, black, transparent 95%)",
           }}
         />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
         <div className="flex flex-col justify-between gap-12 sm:flex-row sm:items-center sm:gap-8">
-
           {/* LEFT: Name and introduction */}
           <div className="max-w-3xl">
             <div className="mb-7 flex items-center gap-3">
@@ -59,8 +58,8 @@ export default function Footer() {
               </span>
             </div>
 
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Kunal home"
               className="group inline-block"
             >
@@ -70,7 +69,7 @@ export default function Footer() {
                   .
                 </span>
               </h2>
-            </a>
+            </Link>
 
             <p className="mt-7 max-w-lg text-base leading-7 text-gray-300 sm:text-lg">
               Developer by passion. Researcher by curiosity.
@@ -91,7 +90,7 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* RIGHT: Social icons in a vertical column */}
+          {/* RIGHT: Social icons */}
           <div className="flex flex-row gap-4 sm:flex-col sm:items-center sm:gap-5">
             {socials.map(({ name, href, icon: Icon, color }) => (
               <a
@@ -113,22 +112,41 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright */}
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/15 pt-6 text-xs text-gray-400 sm:mt-20 sm:flex-row sm:items-center sm:justify-between">
+        {/* Bottom copyright and navigation */}
+        <div className="mt-16 flex flex-col gap-5 border-t border-white/15 pt-6 text-xs text-gray-400 sm:mt-20 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Kunal. All rights reserved.</p>
+
           <p className="tracking-wide">
-            DESIGNED WITH <span className="text-fuchsia-400">✦</span> BUILT WITH CODE
+            DESIGNED WITH <span className="text-fuchsia-400">✦</span> BUILT
+            WITH CODE
           </p>
-          <a
-            href="#top"
-            onClick={(event) => {
-              event.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="w-fit transition-colors hover:text-cyan-300"
-          >
-            Back to top ↑
-          </a>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="#top"
+              onClick={(event) => {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="w-fit transition-colors hover:text-cyan-300"
+            >
+              Back to top ↑
+            </a>
+
+            {/* Subtle Admin Login button */}
+            <Link
+              to="/admin/login"
+              aria-label="Admin login"
+              title="Admin login"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] font-medium text-gray-500 transition-all duration-300 hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-violet-300"
+            >
+              <ShieldCheck
+                size={13}
+                className="transition-colors group-hover:text-violet-300"
+              />
+              Admin
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
